@@ -30,7 +30,7 @@
       devSrc: {
         src: [
           'scripts/vendor/jquery/*.js',
-          'scripts/vendor/q/*.js',
+          'scripts/vendor/q/q.js',
           'scripts/main.js',
           'scripts/config/*.js',
           'scripts/main/*.js',

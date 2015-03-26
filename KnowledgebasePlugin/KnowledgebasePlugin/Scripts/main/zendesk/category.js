@@ -5,7 +5,7 @@
   module.CreateCategory = function(category) {
     var ajaxOptions = util.zendeskOAuthOption();
     ajaxOptions.url += CATEGORY_API_URL;
-    ajaxOptions.type = 'POST';
+    ajaxOptions.method = 'POST';
     ajaxOptions.data = category;
 
     return util.ajax(ajaxOptions);
@@ -14,7 +14,7 @@
   module.ListCategories = function() {
     var ajaxOptions = util.zendeskOAuthOption();
     ajaxOptions.url += CATEGORY_API_URL;
-    ajaxOptions.type = 'GET';
+    ajaxOptions.method = 'GET';
 
     return util.ajax(ajaxOptions);
   };
