@@ -6,7 +6,14 @@
 </head>
 <body>
     <p id="text"></p>
-    <p id="response" style="display: none;"><span style="float: left; margin-right: 10px;">Response:</span><textarea id="response_area" style="width: 500px; height:200px;"></textarea></p>
+    <p id="listCategories_response" style="display: none;">
+        <span style="float: left; margin-right: 10px;">List Category Response:</span>
+        <textarea id="listCategories_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
+    <p id="showCategory_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">Show Category '200240488' Response:</span>
+        <textarea id="showCategory_response_area" style="width: 500px; height:200px;"></textarea>        
+    </p>
     <img id="spinner" src="https://raw.github.com/sjhcockrell/spinners/master/gif/spinner_16.gif" style="display:none;" />
 
     <form action=" https://ioradtesting1.zendesk.com/oauth/authorizations/new" id="authorize" style="display:none;" method="GET">
@@ -20,45 +27,59 @@
     </form>
     <script src="../scripts/vendor/dist/KnowledgebasePlugin.js"></script>
     <script type="text/javascript">
-      // http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
-      function getHashParameter(name) {
-        return decodeURIComponent((new RegExp('[#|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.hash)||[,""])[1].replace(/\+/g, '%20'))||null;
-      }
+        // http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
+        function getHashParameter( name )
+        {
+            return decodeURIComponent(( new RegExp( '[#|&]' + name + '=' + '([^&;]+?)(&|#|;|$)' ).exec( location.hash ) || [, ""] )[1].replace( /\+/g, '%20' ) ) || null;
+        }
 
-      $(document).ready(function() {
-          var error = getHashParameter("error");
-          var token = getHashParameter("access_token");
+        $( document ).ready( function ()
+        {
+            var error = getHashParameter( "error" );
+            var token = getHashParameter( "access_token" );
 
-          if(error) {
-            $("#text").html(getHashParameter("error_description"));
-            $("#authorize").show();
-          } else if(token) {
-            $("#text").html("Received token: " + token + ". Initiating OAuth ticket request.");
+            if ( error ) {
+                $( "#text" ).html( getHashParameter( "error_description" ) );
+                $( "#authorize" ).show();
+            } else if ( token ) {
+                $( "#text" ).html( "Received token: " + token + ". Initiating OAuth ticket request." );
 
-            var spinner = $("#spinner");
-            spinner.show();
+                var spinner = $( "#spinner" );
+                spinner.show();
 
-      //Make the call to the v2 API with your token in the header
-            knowledgebasePlugin.config.zendesk.token = token;
-            knowledgebasePlugin.zendesk.category.ListCategories().then(
-                function(data) {
-                    $( "#response_area" ).html( JSON.stringify( data ) );
-                    $("#response").show();
-                },
-                function(err) {
-                    console.log( err );
-                    $( "#response_area" ).html( "An error occured, check the console." );
-                    $( "#response" ).show();
-                }).then(function() {
-                    spinner.hide();
-                $("#authorize").show();
-            });
+                //Make the call to the v2 API with your token in the header
+                knowledgebasePlugin.config.zendesk.token = token;
+                knowledgebasePlugin.zendesk.category.listCategories().then(
+                    function ( data )
+                    {
+                        $( "#listCategories_response_area" ).html( JSON.stringify( data ) );
+                        $( "#listCategories_response" ).show();
+                    },
+                    function ( err )
+                    {
+                        console.log( err );
+                        $( "#listCategories_response_area" ).html( "An error occured, check the console." );
+                        $( "#listCategories_response" ).show();
+                    } ).then( function ()
+                    {
+                        spinner.hide();
+                        //$( "#authorize" ).show();
+                    } );
 
-
-          } else {
-            $("#authorize").show();
-          }
-      });
+                knowledgebasePlugin.zendesk.category.showCategory( 200240488 ).then(
+                    function ( data ) {
+                        $( "#showCategory_response_area" ).html( JSON.stringify( data ) );
+                        $("#showCategory_response").show();
+                    },
+                    function(err) {
+                        $( "#showCategory_response_area" ).html( "An error occured, check the console." );
+                        $("#showCategory_response").show();
+                    } );
+                
+            } else {
+                $( "#authorize" ).show();
+            }
+        } );
     </script>
 </body>
 </html>
