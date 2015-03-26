@@ -10,7 +10,6 @@
     return {
       url: config.zendesk.rootUri,
       dataType: 'json',
-      data: {},
       beforeSend: function ( xhr )
       {
         xhr.setRequestHeader( "Authorization", "Bearer " + config.zendesk.token );
@@ -19,4 +18,4 @@
   };
 
   return module;
-}( knowledgebasePlugin.util || {}, jQuery, Q, config ) );
+}( knowledgebasePlugin.util || {}, jQuery, Q, knowledgebasePlugin.config ) );

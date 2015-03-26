@@ -62,6 +62,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\main\coreUtils.js" />
     <Content Include="Scripts\main\zendesk\category.js" />
+    <Content Include="Scripts\vendor\dist\KnowledgebasePlugin.js" />
     <Content Include="Scripts\vendor\jquery\jquery.js" />
     <Content Include="Scripts\vendor\q\.gitignore" />
     <Content Include="Scripts\vendor\q\benchmark\compare-with-callbacks.js" />
@@ -81,22 +82,18 @@
     <Content Include="Scripts\vendor\q\examples\async-generators\2-error-propagation.js" />
     <Content Include="Scripts\vendor\q\examples\async-generators\3-spawn.js" />
     <Content Include="Scripts\vendor\q\examples\async-generators\4-flow-control.js" />
-    <Content Include="Scripts\vendor\q\examples\simple-calls.js" />
     <Content Include="Scripts\vendor\q\Gruntfile.js" />
     <Content Include="Scripts\vendor\q\q.js" />
     <Content Include="Scripts\vendor\q\queue.js" />
-    <Content Include="Scripts\vendor\q\test\aplus-adapter.js" />
-    <Content Include="Scripts\vendor\q\test\domain-test.js" />
-    <Content Include="Scripts\vendor\q\test\eta-test.js" />
-    <Content Include="Scripts\vendor\q\test\index.css" />
-    <Content Include="Scripts\vendor\q\test\index.html" />
-    <Content Include="Scripts\vendor\q\test\index.js" />
-    <Content Include="Scripts\vendor\q\test\never-again-test.js" />
-    <Content Include="Scripts\vendor\q\test\node-test.js" />
-    <Content Include="Scripts\vendor\q\test\pass-test.js" />
-    <Content Include="Scripts\vendor\q\test\q-test.js" />
-    <Content Include="Scripts\vendor\q\test\queue-test.js" />
-    <Content Include="Scripts\vendor\q\test\traces-test.js" />
+    <Content Include="Scripts\vendor\q\spec\aplus-adapter.js" />
+    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\jasmine-html.js" />
+    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\jasmine.css" />
+    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\jasmine.js" />
+    <Content Include="Scripts\vendor\q\spec\lib\jasmine-promise.js" />
+    <Content Include="Scripts\vendor\q\spec\q-spec.html" />
+    <Content Include="Scripts\vendor\q\spec\q-spec.js" />
+    <Content Include="Scripts\vendor\q\spec\queue-spec.js" />
+    <Content Include="Test\index.htm" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +103,7 @@
     <Content Include="bower.json" />
     <Content Include="package.json" />
     <Content Include="Scripts\vendor\q\.bower.json" />
+    <Content Include="Scripts\vendor\q\.coverignore" />
     <Content Include="Scripts\vendor\q\.jshintrc" />
     <Content Include="Scripts\vendor\q\.mailmap" />
     <Content Include="Scripts\vendor\q\.npmignore" />
@@ -117,6 +115,7 @@
     <Content Include="Scripts\vendor\q\package.json" />
     <Content Include="Scripts\vendor\q\README.md" />
     <Content Include="Scripts\vendor\q\ref_send.md" />
+    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\MIT.LICENSE" />
     <Content Include="Scripts\vendor\q\VERSIONS.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -127,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
+    <Folder Include="templates\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
