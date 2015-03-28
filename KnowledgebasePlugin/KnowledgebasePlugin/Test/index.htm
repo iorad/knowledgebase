@@ -14,6 +14,12 @@
         <span style="float: left; margin-right: 10px;">Show Category '200240488' Response:</span>
         <textarea id="showCategory_response_area" style="width: 500px; height:200px;"></textarea>        
     </p>
+    <p id="listSections_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">List Section Response:</span>
+        <textarea id="listSections_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
+
+
     <img id="spinner" src="https://raw.github.com/sjhcockrell/spinners/master/gif/spinner_16.gif" style="display:none;" />
 
     <form action=" https://ioradtesting1.zendesk.com/oauth/authorizations/new" id="authorize" style="display:none;" method="GET">
@@ -71,9 +77,19 @@
                         $( "#showCategory_response_area" ).html( JSON.stringify( data ) );
                         $("#showCategory_response").show();
                     },
-                    function(err) {
+                    function( err ) {
                         $( "#showCategory_response_area" ).html( "An error occured, check the console." );
                         $("#showCategory_response").show();
+                    } );
+
+                knowledgebasePlugin.zendesk.section.listSections( 200240488 ).then(
+                    function( data ) {
+                        $( "#listSections_response_area" ).html( JSON.stringify( data ) );
+                        $( "#listSections_response" ).show();
+                    },
+                    function( err ) {
+                        $( "#showCategory_response_area" ).html( "An error occured, check the console." );
+                        $( "#showCategory_response" ).show();
                     } );
                 
             } else {
