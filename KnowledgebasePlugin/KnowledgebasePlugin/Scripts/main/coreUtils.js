@@ -1,9 +1,9 @@
-﻿knowledgebasePlugin.util = ( function ( module, jQuery, Q, config, undefined )
+﻿knowledgebasePlugin.util = ( function ( module, jQuery, config, undefined )
 {
   /* Wrap jQuery.ajax with Q for .then() promises */
   module.ajax = function ( options )
   {
-    return Q( jQuery.ajax( options ) );
+    return jQuery.ajax( options );
   };
 
   module.zendeskOAuthOption = function () {
@@ -19,4 +19,4 @@
   };
 
   return module;
-}( knowledgebasePlugin.util || {}, jQuery, Q, knowledgebasePlugin.config ) );
+}( knowledgebasePlugin.util || {}, jQuery, knowledgebasePlugin.config ) );

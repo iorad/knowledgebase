@@ -1,0 +1,9 @@
+﻿<form action=" https://ioradtesting1.zendesk.com/oauth/authorizations/new" id="authorize" method="GET">
+    <input type="hidden" name="client_id" value="{{client_id}}" />
+    <input type="hidden" name="response_type" value="token" />
+    <input type="hidden" name="redirect_uri" value="{{redirect_uri}}" />
+    <!-- Space separated scope -->
+    <input type="text" name="scope" value="read write" />
+
+    <input type="submit" value="Authorize!" />
+</form>

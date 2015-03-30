@@ -19,6 +19,14 @@
       }
     },
 
+    handlebars: {
+      all: {
+        files: {
+          "scripts/templates.js": ["templates/**/*.hbs"]
+        }
+      }
+    },
+
     //this section is used to join our js files together
     concat: {
       options: {
@@ -30,7 +38,8 @@
       devSrc: {
         src: [
           'scripts/vendor/jquery/*.js',
-          'scripts/vendor/q/q.js',
+          'scripts/vendor/handlebars/*.js',
+          'scripts/templates.js',
           'scripts/main.js',
           'scripts/config/*.js',
           'scripts/main/*.js',
@@ -56,13 +65,14 @@
   grunt.loadNpmTasks( 'grunt-bower-task' );
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   grunt.loadNpmTasks( 'grunt-contrib-concat' );
+  grunt.loadNpmTasks( 'grunt-contrib-handlebars' );
 
   //run bower for package install
   grunt.registerTask( 'install-bower-packages', ['bower'] );
 
   //build vendor file src
-  grunt.registerTask( 'merge-js-files', ['concat'] );
+  grunt.registerTask( 'merge-js-files', ['handlebars', 'concat'] );
 
   //build min vendor file from above
-  grunt.registerTask( 'min-js-file', ['concat', 'uglify'] );
+  grunt.registerTask( 'min-js-file', ['handlebars', 'concat', 'uglify'] );
 };

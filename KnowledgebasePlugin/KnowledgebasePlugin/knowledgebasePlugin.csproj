@@ -65,36 +65,11 @@
     <Content Include="Scripts\main\zendesk\category.js" />
     <Content Include="Scripts\main\zendesk\section.js" />
     <Content Include="Scripts\vendor\dist\KnowledgebasePlugin.js" />
+    <Content Include="Scripts\vendor\handlebars\handlebars.js" />
     <Content Include="Scripts\vendor\jquery\jquery.js" />
-    <Content Include="Scripts\vendor\q\.gitignore" />
-    <Content Include="Scripts\vendor\q\benchmark\compare-with-callbacks.js" />
-    <Content Include="Scripts\vendor\q\benchmark\scenarios.js" />
-    <Content Include="Scripts\vendor\q\design\q0.js" />
-    <Content Include="Scripts\vendor\q\design\q1.js" />
-    <Content Include="Scripts\vendor\q\design\q2.js" />
-    <Content Include="Scripts\vendor\q\design\q3.js" />
-    <Content Include="Scripts\vendor\q\design\q4.js" />
-    <Content Include="Scripts\vendor\q\design\q5.js" />
-    <Content Include="Scripts\vendor\q\design\q6.js" />
-    <Content Include="Scripts\vendor\q\design\q7.js" />
-    <Content Include="Scripts\vendor\q\design\README.js" />
-    <Content Include="Scripts\vendor\q\examples\all.js" />
-    <Content Include="Scripts\vendor\q\examples\async-generators\0.html" />
-    <Content Include="Scripts\vendor\q\examples\async-generators\1-return.js" />
-    <Content Include="Scripts\vendor\q\examples\async-generators\2-error-propagation.js" />
-    <Content Include="Scripts\vendor\q\examples\async-generators\3-spawn.js" />
-    <Content Include="Scripts\vendor\q\examples\async-generators\4-flow-control.js" />
-    <Content Include="Scripts\vendor\q\Gruntfile.js" />
-    <Content Include="Scripts\vendor\q\q.js" />
-    <Content Include="Scripts\vendor\q\queue.js" />
-    <Content Include="Scripts\vendor\q\spec\aplus-adapter.js" />
-    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\jasmine-html.js" />
-    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\jasmine.css" />
-    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\jasmine.js" />
-    <Content Include="Scripts\vendor\q\spec\lib\jasmine-promise.js" />
-    <Content Include="Scripts\vendor\q\spec\q-spec.html" />
-    <Content Include="Scripts\vendor\q\spec\q-spec.js" />
-    <Content Include="Scripts\vendor\q\spec\queue-spec.js" />
+    <Content Include="templates\authentication\ZendeskAuthenticationForm.hbs.js">
+      <DependentUpon>ZendeskAuthenticationForm.hbs</DependentUpon>
+    </Content>
     <Content Include="Test\index.htm" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -104,21 +79,7 @@
   <ItemGroup>
     <Content Include="bower.json" />
     <Content Include="package.json" />
-    <Content Include="Scripts\vendor\q\.bower.json" />
-    <Content Include="Scripts\vendor\q\.coverignore" />
-    <Content Include="Scripts\vendor\q\.jshintrc" />
-    <Content Include="Scripts\vendor\q\.mailmap" />
-    <Content Include="Scripts\vendor\q\.npmignore" />
-    <Content Include="Scripts\vendor\q\.travis.yml" />
-    <Content Include="Scripts\vendor\q\CHANGES.md" />
-    <Content Include="Scripts\vendor\q\CONTRIBUTING.md" />
-    <Content Include="Scripts\vendor\q\examples\async-generators\README.md" />
-    <Content Include="Scripts\vendor\q\LICENSE" />
-    <Content Include="Scripts\vendor\q\package.json" />
-    <Content Include="Scripts\vendor\q\README.md" />
-    <Content Include="Scripts\vendor\q\ref_send.md" />
-    <Content Include="Scripts\vendor\q\spec\lib\jasmine-1.2.0\MIT.LICENSE" />
-    <Content Include="Scripts\vendor\q\VERSIONS.md" />
+    <Content Include="templates\authentication\ZendeskAuthenticationForm.hbs" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -128,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
-    <Folder Include="templates\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
