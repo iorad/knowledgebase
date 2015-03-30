@@ -10,6 +10,7 @@
     return {
       url: config.zendesk.rootUri,
       dataType: 'json',
+      contentType: 'application/json',
       beforeSend: function ( xhr )
       {
         xhr.setRequestHeader( "Authorization", "Bearer " + config.zendesk.token );

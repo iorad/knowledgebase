@@ -61,6 +61,7 @@
     <Content Include="Scripts\config\app-config.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\main\coreUtils.js" />
+    <Content Include="Scripts\main\zendesk\article.js" />
     <Content Include="Scripts\main\zendesk\category.js" />
     <Content Include="Scripts\main\zendesk\section.js" />
     <Content Include="Scripts\vendor\dist\KnowledgebasePlugin.js" />

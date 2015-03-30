@@ -25,7 +25,7 @@
 knowledgebasePlugin.zendesk.article = ( function ( module, util, undefined )
 {
   var ARTICLES_API_URL = '/api/v2/help_center/articles.json';
-  var ARTICLE_API_URL = '/api/v2/help_center/carticles/{id}.json';
+  var ARTICLE_API_URL = '/api/v2/help_center/articles/{id}.json';
   var SECTION_ARTICLES_API_URL = '/api/v2/help_center/sections/{id}/articles.json';
   var CATEGORY_ARTICLES_API_URL = '/api/v2/help_center/categories/{id}/articles.json';
   var USER_ARTICLES_API_URL = '/api/v2/help_center/users/{id}/articles.json';
@@ -77,21 +77,29 @@ knowledgebasePlugin.zendesk.article = ( function ( module, util, undefined )
   };
 
   // expect a ZendeskArticle object JSON stringified.
-  module.createArticle = function(article) {
+  module.createArticle = function(sectionId, article) {
     var ajaxOptions = util.zendeskOAuthOption();
+    var articleData = { article: article };
+
     ajaxOptions.url += SECTION_ARTICLES_API_URL.replace( '{id}', sectionId.toString() );
-    ajaxOptions = 'POST';
-    ajaxOptions.data = article;
+    ajaxOptions.method = 'POST';
+    ajaxOptions.data = JSON.stringify(articleData);
 
     return util.ajax( ajaxOptions );
   };
 
-  // expect a ZendeskArticle object JSON stringified.
+  // expect an article object.
+  //The endpoints do not update translation properties such as the article's title or body
   module.updateArticle = function(article) {
     var ajaxOptions = util.zendeskOAuthOption();
-    ajaxOptions.url += ARTICLE_API_URL.replace( '{id}', articleId.toString() );
+    var articleData = { article: article };
+
+    ajaxOptions.url += ARTICLE_API_URL.replace('{id}', article.id.toString());
     ajaxOptions.method = 'PUT';
-    ajaxOptions.data = article;
+    
+    ajaxOptions.data = JSON.stringify( articleData );
+    
+    return util.ajax( ajaxOptions );
   }
 
   // sample attachmentIds format: '{"attachment_ids": [10002, ...]}'
@@ -101,6 +109,8 @@ knowledgebasePlugin.zendesk.article = ( function ( module, util, undefined )
     ajaxOptions.url += BULK_ATTACHMENTS_API_URL.replace( '{id}', articleId );
     ajaxOptions.method = 'PUT';
     ajaxOptions.data = attachmentIds;
+
+    return util.ajax( ajaxOptions );
   };
 
   return module;

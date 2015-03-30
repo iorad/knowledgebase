@@ -12,13 +12,32 @@
     </p>
     <p id="showCategory_response" style="display:none;">
         <span style="float: left; margin-right: 10px;">Show Category '200240488' Response:</span>
-        <textarea id="showCategory_response_area" style="width: 500px; height:200px;"></textarea>        
+        <textarea id="showCategory_response_area" style="width: 500px; height:200px;"></textarea>
     </p>
     <p id="listSections_response" style="display:none;">
         <span style="float: left; margin-right: 10px;">List Section Response:</span>
         <textarea id="listSections_response_area" style="width: 500px; height:200px;"></textarea>
     </p>
-
+    <p id="listArticlesUnderSection_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">List articles under section '200690958' Response:</span>
+        <textarea id="listArticlesUnderSection_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
+    <p id="listArticles_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">List all articles Response:</span>
+        <textarea id="listArticles_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
+    <p id="listArticlesUnderCategory_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">List articles under Category '200240488' Response:</span>
+        <textarea id="listArticlesUnderCategory_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
+    <p id="showArticle_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">Show Article '204472908' Response:</span>
+        <textarea id="showArticle_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
+    <p id="updateArticle_response" style="display:none;">
+        <span style="float: left; margin-right: 10px;">Update Article '204472908' Response:</span>
+        <textarea id="updateArticle_response_area" style="width: 500px; height:200px;"></textarea>
+    </p>
 
     <img id="spinner" src="https://raw.github.com/sjhcockrell/spinners/master/gif/spinner_16.gif" style="display:none;" />
 
@@ -59,39 +78,126 @@
                     function ( data )
                     {
                         $( "#listCategories_response_area" ).html( JSON.stringify( data ) );
-                        $( "#listCategories_response" ).show();
                     },
                     function ( err )
                     {
                         console.log( err );
                         $( "#listCategories_response_area" ).html( "An error occured, check the console." );
-                        $( "#listCategories_response" ).show();
+
                     } ).then( function ()
                     {
+                        $( "#listCategories_response" ).show();
                         spinner.hide();
                         //$( "#authorize" ).show();
                     } );
 
                 knowledgebasePlugin.zendesk.category.showCategory( 200240488 ).then(
-                    function ( data ) {
+                    function ( data )
+                    {
                         $( "#showCategory_response_area" ).html( JSON.stringify( data ) );
-                        $("#showCategory_response").show();
                     },
-                    function( err ) {
+                    function ( err )
+                    {
                         $( "#showCategory_response_area" ).html( "An error occured, check the console." );
-                        $("#showCategory_response").show();
-                    } );
+                    } ).then(
+                    function ()
+                    {
+                        $( "#showCategory_response" ).show();
+                    }
+                    );
 
                 knowledgebasePlugin.zendesk.section.listSections( 200240488 ).then(
-                    function( data ) {
+                    function ( data )
+                    {
                         $( "#listSections_response_area" ).html( JSON.stringify( data ) );
-                        $( "#listSections_response" ).show();
                     },
-                    function( err ) {
+                    function ( err )
+                    {
                         $( "#showCategory_response_area" ).html( "An error occured, check the console." );
+                    } ).then(
+                    function ()
+                    {
                         $( "#showCategory_response" ).show();
+                    }
+                    );
+
+                knowledgebasePlugin.zendesk.article.listArticlesUnderSection( 200690958 ).then(
+                    function ( data )
+                    {
+                        $( "#listArticlesUnderSection_response_area" ).html( JSON.stringify( data ) );
+                    },
+                    function ( err )
+                    {
+                        $( "#listArticlesUnderSection_response_area" ).html( "An error occured, check the console." );
+                    } ).then(
+                    function ()
+                    {
+                        $( "#listArticlesUnderSection_response" ).show();
+                    }
+                    );
+
+                knowledgebasePlugin.zendesk.article.listArticles().then(
+                    function ( data )
+                    {
+                        $( "#listArticles_response_area" ).html( JSON.stringify( data ) );
+                    },
+                    function ( err )
+                    {
+                        $( "#listArticles_response_area" ).html( "An error occured, check the console." );
+                    } ).then(
+                    function ()
+                    {
+                        $( "#listArticles_response" ).show();
+                    }
+                    );
+
+                knowledgebasePlugin.zendesk.article.listArticlesUnderCategory( 200240488 ).then(
+                    function ( data )
+                    {
+                        $( "#listArticlesUnderCategory_response_area" ).html( JSON.stringify( data ) );
+                    },
+                    function ( err )
+                    {
+                        $( "#listArticlesUnderCategory_response_area" ).html( "An error occured, check the console." );
+                    } ).then(
+                    function ()
+                    {
+                        $( "#listArticlesUnderCategory_response" ).show();
+                    }
+                    );
+
+                knowledgebasePlugin.zendesk.article.showArticle( 204472908 ).then(
+                    function ( data )
+                    {
+                        $( "#showArticle_response_area" ).html( JSON.stringify( data ) );
+                    },
+                    function ( err )
+                    {
+                        $( "#showArticle_response_area" ).html( "An error occured, check the console." );
+                    } ).then(
+                    function ()
+                    {
+                        $( "#showArticle_response" ).show();
                     } );
                 
+                var article = {};
+                article.title = "test creating article with double quote";
+                article.body = "<p><iframe src=https://www.iorad.com/127/4504/7-STEPS-TO-FREEDOM---the-iorad-way--- width=100% scrolling=no height=500px style=border:0px; allowfullscreen=true></iframe></p>";
+                knowledgebasePlugin.zendesk.article.createArticle( 200690958, article ).then(
+                    function ( data )
+                    {
+                        $( "#updateArticle_response_area" ).html( JSON.stringify( data.body ) );
+                    },
+                    function ( err )
+                    {
+                        $( "#updateArticle_response_area" ).html( "An error occured, check the console." );
+                    }
+                ).then(
+            function ()
+            {
+                $( "#updateArticle_response" ).show();
+            } );
+
             } else {
                 $( "#authorize" ).show();
             }
