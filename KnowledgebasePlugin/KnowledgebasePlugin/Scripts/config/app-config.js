@@ -12,7 +12,11 @@ knowledgebasePlugin.config = ( function ( module, undefined )
     token: '{access_token}'
   };
 
-  module.freshdesk = { };
+  module.freshdesk = {
+    rootUri: 'https://{your freshdesk domain name}.freshdesk.com',
+    apiKey: '{your api key}'
+  };
+
   module.desk = { };
 
   return module;
