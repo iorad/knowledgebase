@@ -40,16 +40,7 @@
     </p>
 
     <img id="spinner" src="https://raw.github.com/sjhcockrell/spinners/master/gif/spinner_16.gif" style="display:none;" />
-
-    <!--<form action=" https://ioradtesting1.zendesk.com/oauth/authorizations/new" id="authorize" style="display:none;" method="GET">
-        <input type="hidden" name="client_id" value="localtest" />
-        <input type="hidden" name="response_type" value="token" />
-        <input type="hidden" name="redirect_uri" value="http://localhost:41197/Test/index.htm" />
-        <!-- Space separated scope --><!--
-        <input type="text" name="scope" value="read write" />
-
-        <input type="submit" value="Authorize!" />
-    </form>-->
+    
     <script src="../scripts/vendor/dist/KnowledgebasePlugin.js"></script>
     
     <div id="zendesk_authorization_form_container" style="display:none;">
@@ -57,7 +48,6 @@
     </div>
 
     <script type="text/javascript">
-        // http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
         function getHashParameter( name )
         {
             return decodeURIComponent(( new RegExp( '[#|&]' + name + '=' + '([^&;]+?)(&|#|;|$)' ).exec( location.hash ) || [, ""] )[1].replace( /\+/g, '%20' ) ) || null;

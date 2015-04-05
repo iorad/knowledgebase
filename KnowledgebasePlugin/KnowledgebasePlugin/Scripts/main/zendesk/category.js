@@ -23,9 +23,10 @@ knowledgebasePlugin.zendesk.category = ( function ( module, util, undefined )
   module.createCategory = function ( category )
   {
     var ajaxOptions = util.zendeskOAuthOption();
+    var data = { "category": category };
     ajaxOptions.url += CATEGORIES_API_URL;
     ajaxOptions.method = 'POST';
-    ajaxOptions.data = category;
+    ajaxOptions.data = JSON.stringify(data);
 
     return util.ajax( ajaxOptions );
   };

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Freshdesk API</title>
+</head>
+    <body>
+        <p id="listCategories_response" style="display: none;">
+            <span style="float: left; margin-right: 10px;">List Category Response:</span>
+            <textarea id="listCategories_response_area" style="width: 500px; height:200px;"></textarea>
+        </p>
+        <p id="showCategory_response" style="display:none;">
+            <span style="float: left; margin-right: 10px;">Show Category '200240488' Response:</span>
+            <textarea id="showCategory_response_area" style="width: 500px; height:200px;"></textarea>
+        </p>
+        
+        <img id="spinner" src="https://raw.github.com/sjhcockrell/spinners/master/gif/spinner_16.gif" style="display:none;" />
+
+        <script src="../scripts/vendor/dist/KnowledgebasePlugin.js" ></script>
+        
+        <script type="text/javascript">
+            var myCallback = function ( data )
+            {
+                console.log( JSON.stringify( data ) );
+            };
+
+            $( document ).ready( function() {
+                var $spinner = $( "#spinner" );
+                $spinner.show();
+                
+                // Make the call to the Freshdesk api with your APIKey in the header.
+                knowledgebasePlugin.freshdesk.solutionCategory.listCategories().then(
+                    function ( data ) {
+                        debugger;
+                        $( "#listCategories_response_area" ).html( JSON.stringify( data ) );
+                    },
+                    function( err ) {
+                        console.log( err );
+                        $( "#listCategories_response_area" ).html( "An error occured, check the console" );
+                    } ).then(function() {
+                    $( "#listCategories_response" ).show();
+                    $spinner.hide();
+                } );
+
+            } );
+        </script>
+
+    </body>
+</html>

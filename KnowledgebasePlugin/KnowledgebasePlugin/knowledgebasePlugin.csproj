@@ -61,6 +61,7 @@
     <Content Include="Scripts\config\app-config.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\main\coreUtils.js" />
+    <Content Include="Scripts\main\freshdesk\solutionCategory.js" />
     <Content Include="Scripts\main\zendesk\article.js" />
     <Content Include="Scripts\main\zendesk\category.js" />
     <Content Include="Scripts\main\zendesk\section.js" />
@@ -70,6 +71,7 @@
     <Content Include="templates\authentication\ZendeskAuthenticationForm.hbs.js">
       <DependentUpon>ZendeskAuthenticationForm.hbs</DependentUpon>
     </Content>
+    <Content Include="Test\FreshdeskAPITestPage.html" />
     <Content Include="Test\index.htm" />
     <Content Include="Web.config" />
   </ItemGroup>

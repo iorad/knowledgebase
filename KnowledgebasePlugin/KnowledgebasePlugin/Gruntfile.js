@@ -43,7 +43,8 @@
           'scripts/main.js',
           'scripts/config/*.js',
           'scripts/main/*.js',
-          'scripts/main/zendesk/*.js'
+          'scripts/main/zendesk/*.js',
+          'scripts/main/freshdesk/*.js'
         ],
         dest: 'scripts/vendor/dist/KnowledgebasePlugin.js',
       },
