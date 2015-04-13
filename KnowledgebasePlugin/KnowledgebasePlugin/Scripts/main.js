@@ -14,7 +14,7 @@ var knowledgebasePlugin = ( function ( module, undefined )
 }( knowledgebasePlugin || {} ) );
 
 knowledgebasePlugin.templates = {
-  ZendeskAuthenticationForm: function() {
+  ZendeskAuthenticationForm: function () {
     var template = JST['templates/authentication/ZendeskAuthenticationForm.hbs'];
     var formInfo = {
       client_id    : knowledgebasePlugin.config.zendesk.clientId,
@@ -22,5 +22,9 @@ knowledgebasePlugin.templates = {
     };
 
     return template(formInfo);
+  },
+  KnowledgebaseOptions: function () {
+    var template = JST['templates/knowledgebaseOptionSelector.hbs'];
+    return template();
   }
 };

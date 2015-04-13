@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="endpoint_selector" ></div>
+    
+    <script src="../scripts/vendor/dist/KnowledgebasePlugin.js"></script>
+
+    <div id="zendesk_authorization_form_container" style="display:none;" ></div>
+    
+    <script type="text/javascript">
+       
+        $( document ).ready( function() {
+            $( "#zendesk_authorization_form_container" ).html( knowledgebasePlugin.templates.ZendeskAuthenticationForm() );
+            $( "#endpoint_selector" ).html( knowledgebasePlugin.templates.KnowledgebaseOptions() );
+
+            knowledgebasePlugin.util.init();
+        });
+    </script>
+</body>
+</html>

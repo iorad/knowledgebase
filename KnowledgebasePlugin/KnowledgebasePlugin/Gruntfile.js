@@ -22,7 +22,10 @@
     handlebars: {
       all: {
         files: {
-          "scripts/templates.js": ["templates/**/*.hbs"]
+          "scripts/templates.js": [
+            "templates/**/*.hbs",
+            "templates/*.hbs"
+          ]
         }
       }
     },

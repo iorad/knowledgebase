@@ -70,7 +70,11 @@
     <Content Include="templates\authentication\ZendeskAuthenticationForm.hbs.js">
       <DependentUpon>ZendeskAuthenticationForm.hbs</DependentUpon>
     </Content>
+    <Content Include="templates\knowledgebaseOptionSelector.hbs.js">
+      <DependentUpon>knowledgebaseOptionSelector.hbs</DependentUpon>
+    </Content>
     <Content Include="Test\index.htm" />
+    <Content Include="Test\knowledgebaseTestingPage.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +84,7 @@
     <Content Include="bower.json" />
     <Content Include="package.json" />
     <Content Include="templates\authentication\ZendeskAuthenticationForm.hbs" />
+    <Content Include="templates\knowledgebaseOptionSelector.hbs" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
